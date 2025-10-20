@@ -361,13 +361,9 @@
   </div>
 
   <script>
-    // Only enable 3D effects on devices with a cursor (desktop/laptop)
     const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    
     if (hasHover) {
-      // 3D Tilt Effect on Cards
       const tiles = document.querySelectorAll('[data-tilt]');
-      
       tiles.forEach(tile => {
         tile.addEventListener('mousemove', (e) => {
           const rect = tile.getBoundingClientRect();
@@ -387,8 +383,6 @@
           tile.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
         });
       });
-
-      // Subtle 3D effect on main cards
       const cards = document.querySelectorAll('.glass-card');
       
       cards.forEach(card => {
