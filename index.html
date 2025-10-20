@@ -211,6 +211,39 @@
       font-size: 1.1rem;
     }
 
+    .credits {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .credits-pic {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      object-fit: cover;
+    }
+
+    .commission-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #86efac;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
     .commission-badge {
       display: inline-block;
       background: rgba(34, 197, 94, 0.2);
@@ -281,9 +314,7 @@
       <p style="margin-top: 1rem; font-size: 1.05rem; color: rgba(255, 255, 255, 0.85);">
         Still learning and improving every day, so if my code looks a bit rough around the edges, thanks for your patience! I'm always working on getting better.
       </p>
-      <div class="commission-badge">
-        ✨ Open for Commissions! Contact me on Discord
-      </div>
+
     </section>
 
     <section class="glass-card" id="skills">
@@ -301,27 +332,31 @@
       <h2>Quick Info</h2>
       <div class="info-grid">
         <div class="info-tile" data-tilt>
-          <h3>👨‍💻 Developer</h3>
+          <h3>Developer</h3>
           <p>Building websites, Discord bots, and Java applications with passion and creativity!</p>
         </div>
         <div class="info-tile" data-tilt>
-          <h3>🐱 Cat Lover</h3>
+          <h3>Cat Lover</h3>
           <p>Cats are the best! They're my coding companions and constant source of inspiration.</p>
         </div>
         <div class="info-tile" data-tilt>
-          <h3>📚 Always Learning</h3>
+          <h3>Always Learning</h3>
           <p>At 15, I'm constantly exploring new technologies and improving my skills every day.</p>
         </div>
         <div class="info-tile" data-tilt>
-          <h3>💼 Commissions</h3>
-          <p>Taking commission work! DM me on Discord for inquiries. Better contact system coming soon!</p>
+          <h3>Gamer</h3>
+          <p>When I'm not coding, you can find me on Steam playing games and chilling with friends!</p>
         </div>
       </div>
     </section>
 
     <footer>
-      <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Thanks for visiting! 🚀</p>
-      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Made with 💙 by ReallyCreative</p>
+      <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Thanks for visiting!</p>
+      <div class="credits">
+        <span>Made By</span>
+        <img src="./assets/R4T.png" alt="R4T" class="credits-pic">
+        <span>R4T</span>
+      </div>
     </footer>
   </div>
 
