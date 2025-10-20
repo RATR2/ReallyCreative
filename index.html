@@ -297,7 +297,7 @@
         <img src="./assets/ReallyCreative.png" alt="ReallyCreative profile picture" class="profile-pic">
         <div>
           <h1>ReallyCreative</h1>
-          <p class="subtitle">Web Developer | Discord Bot Dev | Java Enthusiast <span class="cat-emoji">🐱</span></p>
+          <p class="subtitle">Web Developer | Discord Bot Dev | Java Enthusiast</p>
         </div>
       </div>
       <div class="quick-links">
@@ -361,51 +361,56 @@
   </div>
 
   <script>
-    // 3D Tilt Effect on Cards
-    const tiles = document.querySelectorAll('[data-tilt]');
+    // Only enable 3D effects on devices with a cursor (desktop/laptop)
+    const hasHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     
-    tiles.forEach(tile => {
-      tile.addEventListener('mousemove', (e) => {
-        const rect = tile.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        
-        tile.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-      });
+    if (hasHover) {
+      // 3D Tilt Effect on Cards
+      const tiles = document.querySelectorAll('[data-tilt]');
       
-      tile.addEventListener('mouseleave', () => {
-        tile.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      tiles.forEach(tile => {
+        tile.addEventListener('mousemove', (e) => {
+          const rect = tile.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 10;
+          const rotateY = (centerX - x) / 10;
+          
+          tile.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        });
+        
+        tile.addEventListener('mouseleave', () => {
+          tile.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+        });
       });
-    });
 
-    // Subtle 3D effect on main cards
-    const cards = document.querySelectorAll('.glass-card');
-    
-    cards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 50;
-        const rotateY = (centerX - x) / 50;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      });
+      // Subtle 3D effect on main cards
+      const cards = document.querySelectorAll('.glass-card');
       
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const rotateX = (y - centerY) / 50;
+          const rotateY = (centerX - x) / 50;
+          
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
       });
-    });
+    }
   </script>
 </body>
 </html>
