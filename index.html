@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReallyCreative - Developer Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #5865F2 0%, #1e3a8a 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #ffffff;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 0 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      object-fit: cover;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .cat-emoji {
+      font-size: 1.6rem;
+      display: inline-block;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.9rem 1.8rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 500;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    h2 {
+      color: #ffffff;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      font-weight: 600;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .info-tile {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .info-tile h3 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .info-tile p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #bfdbfe;
+      text-decoration: underline;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .tech-tag {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 0.7rem 1.3rem;
+      border-radius: 25px;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .tech-tag:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      margin-top: 3rem;
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    footer p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+    }
+
+    .commission-badge {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #86efac;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .glass-card {
+        padding: 1.8rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .profile-pic {
+        width: 120px;
+        height: 120px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <img src="./assets/ReallyCreative.png" alt="ReallyCreative profile picture" class="profile-pic">
+        <div>
+          <h1>ReallyCreative</h1>
+          <p class="subtitle">Web Developer | Discord Bot Dev | Java Enthusiast <span class="cat-emoji">🐱</span></p>
+        </div>
+      </div>
+      <div class="quick-links">
+        <a href="https://github.com/ReallyCreativeDev" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://steamcommunity.com/id/ReallyCreative/" class="btn" target="_blank" rel="noopener noreferrer">Steam</a>
+      </div>
+    </header>
+
+    <section class="glass-card" id="about">
+      <h2>About Me</h2>
+      <p style="font-size: 1.1rem;">
+        Hey there! I'm a 15-year-old developer who really loves cats 🐱 and coding. I specialize in web development, Discord bot creation, and Java programming. I'm passionate about learning new technologies and building cool projects!
+      </p>
+      <p style="margin-top: 1rem; font-size: 1.05rem; color: rgba(255, 255, 255, 0.85);">
+        Still learning and improving every day, so if my code looks a bit rough around the edges, thanks for your patience! I'm always working on getting better.
+      </p>
+      <div class="commission-badge">
+        ✨ Open for Commissions! Contact me on Discord
+      </div>
+    </section>
+
+    <section class="glass-card" id="skills">
+      <h2>Tech Stack</h2>
+      <div class="tech-stack">
+        <span class="tech-tag">Web Development</span>
+        <span class="tech-tag">Discord Bots</span>
+        <span class="tech-tag">Java</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">HTML/CSS</span>
+      </div>
+    </section>
+
+    <section class="glass-card" id="info">
+      <h2>Quick Info</h2>
+      <div class="info-grid">
+        <div class="info-tile" data-tilt>
+          <h3>👨‍💻 Developer</h3>
+          <p>Building websites, Discord bots, and Java applications with passion and creativity!</p>
+        </div>
+        <div class="info-tile" data-tilt>
+          <h3>🐱 Cat Lover</h3>
+          <p>Cats are the best! They're my coding companions and constant source of inspiration.</p>
+        </div>
+        <div class="info-tile" data-tilt>
+          <h3>📚 Always Learning</h3>
+          <p>At 15, I'm constantly exploring new technologies and improving my skills every day.</p>
+        </div>
+        <div class="info-tile" data-tilt>
+          <h3>💼 Commissions</h3>
+          <p>Taking commission work! DM me on Discord for inquiries. Better contact system coming soon!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">Thanks for visiting! 🚀</p>
+      <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.7);">Made with 💙 by ReallyCreative</p>
+    </footer>
+  </div>
+
+  <script>
+    // 3D Tilt Effect on Cards
+    const tiles = document.querySelectorAll('[data-tilt]');
+    
+    tiles.forEach(tile => {
+      tile.addEventListener('mousemove', (e) => {
+        const rect = tile.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+        
+        tile.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+      
+      tile.addEventListener('mouseleave', () => {
+        tile.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+
+    // Subtle 3D effect on main cards
+    const cards = document.querySelectorAll('.glass-card');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = (y - centerY) / 50;
+        const rotateY = (centerX - x) / 50;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+      });
+    });
+  </script>
+</body>
+</html>
